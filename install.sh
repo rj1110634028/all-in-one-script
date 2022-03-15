@@ -49,36 +49,39 @@ install-dev-tools() {
 
     ## yarn
     echo -e "${YELLOW}Install yarn${CLEAR}"
+    brew install npm
+    ## yarn
+    echo -e "${YELLOW}Install yarn${CLEAR}"
     brew install yarn
 
     ## Visual Studio Code
     echo -e "${YELLOW}Install Visual Studio Code${CLEAR}"
-    brew install visual-studio-code
+    ## brew install visual-studio-code
 
     ## mas-cli
     ## A simple command line interface for the Mac App Store. Designed for scripting and automation.
-    echo -e "${YELLOW}Install mas-cli${CLEAR}"
-    brew install mas
+    # echo -e "${YELLOW}Install mas-cli${CLEAR}"
+    # brew install mas
 
-    ## VirtualBox
-    echo -e "${YELLOW}Install Virtual Box ${CLEAR}"
-    brew install virtualbox virtualbox-extension-pack
+    # ## VirtualBox
+    # echo -e "${YELLOW}Install Virtual Box ${CLEAR}"
+    # brew install virtualbox virtualbox-extension-pack
 
-    ## Docker, Vagrant
-    echo -e "${YELLOW}Install Docker & Vagrant${CLEAR}"
-    brew install docker vagrant
+    # ## Docker, Vagrant
+    # echo -e "${YELLOW}Install Docker & Vagrant${CLEAR}"
+    # brew install docker vagrant
 
-    ## SourceTree
-    echo -e "${YELLOW}Install SourceTree${CLEAR}"
-    brew install --cask sourcetree
+    # ## SourceTree
+    # echo -e "${YELLOW}Install SourceTree${CLEAR}"
+    # brew install --cask sourcetree
 
-    ## iTerm2
-    echo -e "${YELLOW}Install iTerm2${CLEAR}"
-    brew install iterm2
+    # ## iTerm2
+    # echo -e "${YELLOW}Install iTerm2${CLEAR}"
+    # brew install iterm2
 
-    ## Appium
-    echo -e "${YELLOW}Install Appium${CLEAR}"
-    brew install appium
+    # ## Appium
+    # echo -e "${YELLOW}Install Appium${CLEAR}"
+    # brew install appium
 
     ## ngrok
     echo -e "${YELLOW}Install ngrok${CLEAR}"
@@ -94,22 +97,22 @@ install-basic-tools() {
     echo -e "${YELLOW}Install Google Drive${CLEAR}"
     brew install google-drive
 
-    ## 1Password
-    echo -e "${YELLOW}Install 1Password${CLEAR}"
-    brew install 1password 1password-cli
+    # ## 1Password
+    # echo -e "${YELLOW}Install 1Password${CLEAR}"
+    # brew install 1password 1password-cli
 
-    ## Zoom, Slack
-    echo -e "${YELLOW}Install Zoom Slack${CLEAR}"
-    brew install zoom slack
+    # ## Zoom, Slack
+    # echo -e "${YELLOW}Install Zoom Slack${CLEAR}"
+    # brew install zoom slack
 
-    ## Sketch, Figma
-    echo -e "${YELLOW}Install Sketch Figma${CLEAR}"
-    brew install sketch
-    brew install figma
+    # ## Sketch, Figma
+    # echo -e "${YELLOW}Install Sketch Figma${CLEAR}"
+    # brew install sketch
+    # brew install figma
 
-    ## Zeplin
-    echo -e "${YELLOW}Install zeplin ${CLEAR}"
-    brew install zeplin
+    # ## Zeplin
+    # echo -e "${YELLOW}Install zeplin ${CLEAR}"
+    # brew install zeplin
 
     ## Line
     echo -e "${YELLOW}Install Line${CLEAR}"
@@ -139,7 +142,7 @@ install-all() {
     install-basic-tools
 
     echo -e "${GREEN}Starting Install others !${CLEAR}"
-    install-others
+    # install-others
 }
 
 install-all
