@@ -29,7 +29,7 @@ echo -e "${GREEN}Starting Install !${CLEAR}"
 #   echo "Xcode CLI tools OK"
 # fi
 
-install-dev-tools() {
+installdevtools() {
 
     ## Homebrew
     echo -e "${YELLOW}Install Homebrew${CLEAR}"
@@ -86,9 +86,10 @@ install-dev-tools() {
     ## ngrok
     echo -e "${YELLOW}Install ngrok${CLEAR}"
     brew install ngrok
+    
 }
 
-install-basic-tools() {
+installbasictools() {
     ## Google Chrome
     echo -e "${YELLOW}Install Google Chrome${CLEAR}"
     brew install google-chrome
@@ -116,7 +117,7 @@ install-basic-tools() {
 
     ## Line
     echo -e "${YELLOW}Install Line${CLEAR}"
-    mas install 539883307
+    # mas install 539883307
 
     ## AnyDesk
     echo -e "${YELLOW}Install AnyDesk${CLEAR}"
@@ -127,22 +128,22 @@ install-basic-tools() {
     brew install notion
 }
 
-install-others() {
+installothers() {
 
     ##Spotify
     echo -e "${YELLOW}Install Spotify${CLEAR}"
     brew install spotify
 }
 
-install-all() {
+installall() {
     echo -e "${GREEN}Starting Install dev-tools !${CLEAR}"
-    install-dev-tools
+    installdevtools
 
     echo -e "${GREEN}Starting Install basic-tools !${CLEAR}"
-    install-basic-tools
+    installbasictools
 
     echo -e "${GREEN}Starting Install others !${CLEAR}"
     # install-others
 }
 
-install-all
+installall
