@@ -53,7 +53,6 @@ install() {
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
     sudo apt-get -y install phpmyadmin
 
-   
 }
 
 install
