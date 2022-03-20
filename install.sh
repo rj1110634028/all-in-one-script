@@ -44,18 +44,18 @@ installdevtools() {
     ## git
     echo -e "${YELLOW}Install GIT${CLEAR}"
     brew install git
-    git config --global user.email "tilda.lu@trunk-studio.com"
-    git config --global user.name "Tilda"
+    git config --global user.email "jo901025@gmail.com"
+    git config --global user.name "Jonathan"
 
     ## yarn
-    echo -e "${YELLOW}Install yarn${CLEAR}"
+    echo -e "${YELLOW}Install npm${CLEAR}"
     brew install npm
     ## yarn
     echo -e "${YELLOW}Install yarn${CLEAR}"
     brew install yarn
 
     ## Visual Studio Code
-    echo -e "${YELLOW}Install Visual Studio Code${CLEAR}"
+    # echo -e "${YELLOW}Install Visual Studio Code${CLEAR}"
     ## brew install visual-studio-code
 
     ## mas-cli
