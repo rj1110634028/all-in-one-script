@@ -38,9 +38,10 @@ install() {
     
     echo -e "${YELLOW}Install mysql${CLEAR}"
     sudo apt-get install -y mysql-server
-   
+    sudo mysql --skip-column-names -B -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';"
+
     echo -e "${YELLOW}Install php5${CLEAR}"
-    sudo apt-get install -y php5 libapache2-mod-php5 php5-intl php5-mcrypt php5-curl php5-gd php5-sqlite
+    sudo apt-get install -y php libapache2-mod-php php-mysql
    
     echo -e "${YELLOW}Install python3${CLEAR}"
     sudo apt-get install -y python3-pip
@@ -49,7 +50,7 @@ install() {
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password root"
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password root"
-    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password root`"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password root"
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
     sudo apt-get -y install phpmyadmin
 
