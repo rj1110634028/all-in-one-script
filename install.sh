@@ -29,121 +29,31 @@ echo -e "${GREEN}Starting Install !${CLEAR}"
 #   echo "Xcode CLI tools OK"
 # fi
 
-installdevtools() {
+install() {
+    sudo apt-get update
 
-    ## Homebrew
-    echo -e "${YELLOW}Install Homebrew${CLEAR}"
-    CI=1
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew update
-
-    ## NVM
-    echo -e "${YELLOW}Install NVM${CLEAR}"
-    brew install nvm
-
-    ## git
-    echo -e "${YELLOW}Install GIT${CLEAR}"
-    brew install git
-    git config --global user.email "jo901025@gmail.com"
-    git config --global user.name "Jonathan"
-
-    ## yarn
-    echo -e "${YELLOW}Install npm${CLEAR}"
-    brew install npm
-    ## yarn
-    echo -e "${YELLOW}Install yarn${CLEAR}"
-    brew install yarn
-
-    ## Visual Studio Code
-    # echo -e "${YELLOW}Install Visual Studio Code${CLEAR}"
-    ## brew install visual-studio-code
-
-    ## mas-cli
-    ## A simple command line interface for the Mac App Store. Designed for scripting and automation.
-    # echo -e "${YELLOW}Install mas-cli${CLEAR}"
-    # brew install mas
-
-    # ## VirtualBox
-    # echo -e "${YELLOW}Install Virtual Box ${CLEAR}"
-    # brew install virtualbox virtualbox-extension-pack
-
-    # ## Docker, Vagrant
-    # echo -e "${YELLOW}Install Docker & Vagrant${CLEAR}"
-    # brew install docker vagrant
-
-    # ## SourceTree
-    # echo -e "${YELLOW}Install SourceTree${CLEAR}"
-    # brew install --cask sourcetree
-
-    # ## iTerm2
-    # echo -e "${YELLOW}Install iTerm2${CLEAR}"
-    # brew install iterm2
-
-    # ## Appium
-    # echo -e "${YELLOW}Install Appium${CLEAR}"
-    # brew install appium
-
-    ## ngrok
-    echo -e "${YELLOW}Install ngrok${CLEAR}"
-    brew install ngrok
+    echo -e "${YELLOW}Install apache2${CLEAR}"
+    sudo apt-get install -y apache2
+    sudo ufw allow "Apache Full"
     
+    echo -e "${YELLOW}Install mysql${CLEAR}"
+    sudo apt-get install -y mysql-server
+   
+    echo -e "${YELLOW}Install php5${CLEAR}"
+    sudo apt-get install -y php5 libapache2-mod-php5 php5-intl php5-mcrypt php5-curl php5-gd php5-sqlite
+   
+    echo -e "${YELLOW}Install python3${CLEAR}"
+    sudo apt-get install -y python3-pip
+   
+    echo -e "${YELLOW}Install phpmyadmin${CLEAR}"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password root"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password root"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password root`"
+    sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
+    sudo apt-get -y install phpmyadmin
+
+   
 }
 
-installbasictools() {
-    ## Google Chrome
-    echo -e "${YELLOW}Install Google Chrome${CLEAR}"
-    brew install google-chrome
-
-    ## Google Drive
-    echo -e "${YELLOW}Install Google Drive${CLEAR}"
-    brew install google-drive
-
-    # ## 1Password
-    # echo -e "${YELLOW}Install 1Password${CLEAR}"
-    # brew install 1password 1password-cli
-
-    # ## Zoom, Slack
-    # echo -e "${YELLOW}Install Zoom Slack${CLEAR}"
-    # brew install zoom slack
-
-    # ## Sketch, Figma
-    # echo -e "${YELLOW}Install Sketch Figma${CLEAR}"
-    # brew install sketch
-    # brew install figma
-
-    # ## Zeplin
-    # echo -e "${YELLOW}Install zeplin ${CLEAR}"
-    # brew install zeplin
-
-    ## Line
-    echo -e "${YELLOW}Install Line${CLEAR}"
-    # mas install 539883307
-
-    ## AnyDesk
-    echo -e "${YELLOW}Install AnyDesk${CLEAR}"
-    brew install anydesk
-
-    ## Notion
-    echo -e "${YELLOW}Install Notion${CLEAR}"
-    brew install notion
-}
-
-installothers() {
-
-    ##Spotify
-    echo -e "${YELLOW}Install Spotify${CLEAR}"
-    brew install spotify
-}
-
-installall() {
-    echo -e "${GREEN}Starting Install dev-tools !${CLEAR}"
-    installdevtools
-
-    echo -e "${GREEN}Starting Install basic-tools !${CLEAR}"
-    installbasictools
-
-    echo -e "${GREEN}Starting Install others !${CLEAR}"
-    # install-others
-}
-
-installall
+install
